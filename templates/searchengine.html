@@ -1,0 +1,26 @@
+<div>
+    <label for="searchInput">
+        <p>Pronađi restoran</p>
+        <p>Ukucaj u polje ispod restoran koji bi želeo da posetiš</p>
+    </label>
+    <input  id="searchInput"
+            type="search" 
+            ng-model="search" 
+            placeholder="Potraži restoran"
+            ng-search="hideEmptyList()"
+            autofocus="true" >
+</div>
+<div>
+    <ul id="searchlist" ng-show="search && showResults">
+        <li ng-animate="'animate'" 
+            ng-repeat="restaurant in restaurants | filter: search | limitTo: 6 | orderBy: '-rating'">
+            <a ng-click="selectRestaurant(restaurant)">{{restaurant.name + ', ' + restaurant.address.city}}</a>
+        </li>
+        <li ng-if="noSearchResults">
+            <a id="noResults" href="https://en.wikipedia.org/wiki/Meaning_of_life">Nema rezultata pretrage za traženi pojam.</a>
+        </li>
+        <li ng-if="!restaurants.length">
+            <a id="brokenInternet" href="https://en.wikipedia.org/wiki/Solar_flare">Nije uspeo pokušaj povezivanja sa serverom.</a>
+        </li>
+    </ul>  
+</div>
