@@ -17,7 +17,7 @@
             <a ng-click="selectRestaurant(restaurant)">{{restaurant.name + ', ' + restaurant.address.city}}</a>
         </li>
         <li ng-if="noSearchResults">
-            <a id="noResults" href="https://en.wikipedia.org/wiki/Meaning_of_life">Nema rezultata pretrage za traženi pojam.</a>
+            <a id="noResults">Nema rezultata pretrage za traženi pojam.</a>
         </li>
         <li ng-if="!restaurants.length">
             <a id="brokenInternet" href="https://en.wikipedia.org/wiki/Solar_flare">Nije uspeo pokušaj povezivanja sa serverom.</a>
